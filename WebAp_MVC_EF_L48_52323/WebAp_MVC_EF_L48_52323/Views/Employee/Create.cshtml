@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<table>
+    <tr>
+        <td>Name :</td>
+        <td><input type="text" id="txtname" /></td>
+    </tr>
+
+    <tr>
+        <td>Address :</td>
+        <td><input type="text" id="txtaddress" /></td>
+    </tr>
+
+    <tr>
+        <td>Age :</td>
+        <td><input type="text" id="txtage" /></td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td><input type="button" id="btnsave" value="Save" onclick="SaveData()" /></td>
+    </tr>
+</table>
+
+<table id="tbl" style="background-color:gray;color:white;width:600px">
+    <tr style="background-color:purple">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Age</th>
+    </tr>
+</table>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetData();
+    });
+    function SaveData() {
+        $.ajax({
+            url: 'Employee/Insert',
+            type: 'post',
+            data: { name: $("#txtname").val(), address: $("#txtaddress").val(), age: $("#txtage").val() },
+            success: function () {
+                GetData();
+                //alert('Data saved successfully !!');
+            },
+            error: function () {
+                alert('Data  not saved !!');
+            }
+        });
+    }
+
+    function GetData() {
+        $.ajax({
+            url: 'Employee/Get',
+            type: 'post',
+            data: {},
+            success: function (data) {
+                $("#tbl").find("tr:gt(0)").remove();
+                for (var i = 0; i < data.length; i++) {
+                    $("#tbl").append('<tr> <td>' + data[i].empid + '</td> <td>' + data[i].name + '</td> <td>' + data[i].address + '</td> <td>' + data[i].age + '</td> </tr>');
+                }
+               
+               /* alert('Data displayed successfully !!');*/
+            },
+            error: function () {
+                alert('Data  not found !!');
+            }
+        });
+    }
+</script>
+

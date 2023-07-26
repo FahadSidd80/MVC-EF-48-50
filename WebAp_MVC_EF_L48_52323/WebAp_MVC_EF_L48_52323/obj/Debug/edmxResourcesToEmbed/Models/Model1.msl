@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_L48_MVC_EF_CRUD_LINQ_52323ModelStoreContainer" CdmEntityContainer="DatabaseContext">
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="age" ColumnName="age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_tblEmployee_delete" FunctionName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.Store.sp_tblEmployee_delete" />
+    <FunctionImportMapping FunctionImportName="sp_tblEmployee_edit" FunctionName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.Store.sp_tblEmployee_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.sp_tblEmployee_edit_Result">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="age" ColumnName="age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_tblEmployee_get" FunctionName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.Store.sp_tblEmployee_get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.sp_tblEmployee_get_Result">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="age" ColumnName="age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_tblEmployee_insert" FunctionName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.Store.sp_tblEmployee_insert" />
+    <FunctionImportMapping FunctionImportName="sp_tblEmployee_update" FunctionName="DB_L48_MVC_EF_CRUD_LINQ_52323Model.Store.sp_tblEmployee_update" />
+  </EntityContainerMapping>
+</Mapping>

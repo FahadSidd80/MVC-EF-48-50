@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_L49_MVC_EF_CRUD_LINQ_52323Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="country" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <FunctionImport Name="sp_tblEmployee_delete">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_tblEmployee_edit" ReturnType="Collection(DB_L49_MVC_EF_CRUD_LINQ_52323Model.sp_tblEmployee_edit_Result)">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_tblEmployee_get" ReturnType="Collection(DB_L49_MVC_EF_CRUD_LINQ_52323Model.sp_tblEmployee_get_Result)" />
+    <FunctionImport Name="sp_tblEmployee_update">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_tblEmployee_insert">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tblCountries" EntityType="DB_L49_MVC_EF_CRUD_LINQ_52323Model.tblCountry" />
+    <FunctionImport Name="usp_tblCountry_get" ReturnType="Collection(DB_L49_MVC_EF_CRUD_LINQ_52323Model.usp_tblCountry_get_Result)" />
+  </EntityContainer>
+  <ComplexType Name="sp_tblEmployee_edit_Result">
+    <Property Type="Int32" Name="empid" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_tblEmployee_get_Result">
+    <Property Type="Int32" Name="empid" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tblCountry">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="usp_tblCountry_get_Result">
+    <Property Type="Int32" Name="cid" Nullable="false" />
+    <Property Type="String" Name="cname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

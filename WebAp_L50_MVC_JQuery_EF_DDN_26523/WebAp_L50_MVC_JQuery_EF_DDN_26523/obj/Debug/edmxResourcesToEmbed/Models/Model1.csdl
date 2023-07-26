@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_L50_MVC_EF_Depdrp_52623Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblCountry">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="country" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblState">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblCountries" EntityType="Self.tblCountry" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <EntitySet Name="tblStates" EntityType="Self.tblState" />
+    <FunctionImport Name="sp_tblEmployee_delete">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_tblEmployee_edit" ReturnType="Collection(DB_L50_MVC_EF_Depdrp_52623Model.sp_tblEmployee_edit_Result)">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_tblEmployee_get" ReturnType="Collection(DB_L50_MVC_EF_Depdrp_52623Model.sp_tblEmployee_get_Result)" />
+    <FunctionImport Name="sp_tblEmployee_insert">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_tblEmployee_update">
+      <Parameter Name="empid" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_tblCountry_get" ReturnType="Collection(DB_L50_MVC_EF_Depdrp_52623Model.usp_tblCountry_get_Result)" />
+    <FunctionImport Name="usp_tblState_get" ReturnType="Collection(DB_L50_MVC_EF_Depdrp_52623Model.usp_tblState_get_Result)">
+      <Parameter Name="cid" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_tblEmployee_edit_Result">
+    <Property Type="Int32" Name="empid" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="Int32" Name="country" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_tblEmployee_get_Result">
+    <Property Type="Int32" Name="empid" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="Int32" Name="country" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_tblCountry_get_Result">
+    <Property Type="Int32" Name="cid" Nullable="false" />
+    <Property Type="String" Name="cname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="usp_tblState_get_Result">
+    <Property Type="Int32" Name="sid" Nullable="false" />
+    <Property Type="Int32" Name="cid" Nullable="true" />
+    <Property Type="String" Name="sname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

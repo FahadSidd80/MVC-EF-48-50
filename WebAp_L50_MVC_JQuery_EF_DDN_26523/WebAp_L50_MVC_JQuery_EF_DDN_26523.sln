@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAp_L50_MVC_JQuery_EF_DDN_26523", "WebAp_L50_MVC_JQuery_EF_DDN_26523\WebAp_L50_MVC_JQuery_EF_DDN_26523.csproj", "{59EE1F7D-3E9C-4495-9FC8-4B5451F618CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59EE1F7D-3E9C-4495-9FC8-4B5451F618CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59EE1F7D-3E9C-4495-9FC8-4B5451F618CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59EE1F7D-3E9C-4495-9FC8-4B5451F618CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59EE1F7D-3E9C-4495-9FC8-4B5451F618CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32E336EB-803B-405B-B023-928E268520C0}
+	EndGlobalSection
+EndGlobal
